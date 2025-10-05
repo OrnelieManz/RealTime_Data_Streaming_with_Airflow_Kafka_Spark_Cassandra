@@ -1,0 +1,6 @@
+requests
+apache-airflow
+kafka-python-ng
+psycopg2
+pyarrow>=10.0.1
+sqlalchemy

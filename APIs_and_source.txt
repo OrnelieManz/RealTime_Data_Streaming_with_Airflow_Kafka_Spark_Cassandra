@@ -1,0 +1,106 @@
+Data source: Data provided by financialdata.net. consult its documentation at https://financialdata.net/documentation
+When making requests, ensure that each URL ends with ?key=API_KEY. If the URL already contains other query parameters, use &key=API_KEY when adding the API key.
+Data 1:
+Endpoint 1: https://financialdata.net/api/v1/stock-prices?identifier=MSFT&key=API_KEY
+
+Response 1: 
+[
+  {
+    "trading_symbol": "MSFT",
+    "date": "2024-12-04",
+    "open": 433.03,
+    "high": 439.67,
+    "low": 432.63,
+    "close": 437.42,
+    "volume": 26009430.0
+  },
+  {
+    "trading_symbol": "MSFT",
+    "date": "2024-12-03",
+    "open": 429.84,
+    "high": 432.47,
+    "low": 427.74,
+    "close": 431.2,
+    "volume": 18301990.0
+  },
+  ...
+]
+
+Data 2:
+International Stock Symbols
+---------------------------
+Retrieve a list of stock symbols for publicly traded international companies. Data is available for the following stock exchanges: Toronto, London, Frankfurt, Euronext Paris, Euronext Amsterdam, Tokyo, Hong Kong, Singapore, Indonesia, Malaysia, Korea, Brazil, Mexico, India, Bombay. There is a limit of 500 records per API call.
+
+Endpoint 2: 
+https://financialdata.net/api/v1/international-stock-symbols?key=API_KEY
+
+Response 2:
+[
+  {
+    "trading_symbol": "000080.KS",
+    "registrant_name": "HiteJinro Co., Ltd."
+  },
+  {
+    "trading_symbol": "000100.KS",
+    "registrant_name": "Yuhan Corporation"
+  },
+  {
+    "trading_symbol": "000120.KS",
+    "registrant_name": "CJ Logistics Corporation"
+  },
+  ...
+]
+
+Data 3:
+Commodity Symbols
+-----------------
+The commodity market covers the trading of raw materials like oil, gold, coffee, etc. This API endpoint provides trading symbols and additional information for major commodities.
+
+Endpoint 3: https://financialdata.net/api/v1/commodity-symbols?key=34e0dff7b74c53be95d89db466991e67
+
+Response 3:
+[
+  {
+    "trading_symbol": "BZ",
+    "description": "Brent Crude Oil Futures (NYMEX)"
+  },
+  {
+    "trading_symbol": "CJ",
+    "description": "Cocoa Futures (NYMEX)"
+  },
+  {
+    "trading_symbol": "CL",
+    "description": "Crude Oil Futures (NYMEX)"
+  },
+  ...
+]
+
+Data 4:
+Commodity Prices
+----------------
+The commodity market comprises the trading of raw materials such as oil, gold, coffee, etc. Our API offers over ten years of end-of-day historical prices and volumes for major commodities. There is a limit of 300 records per API call.
+
+Endpoint 4: https://financialdata.net/api/v1/commodity-prices?identifier=ZC&key=34e0dff7b74c53be95d89db466991e67
+
+Response 4:
+[
+  {
+    "trading_symbol": "ZC",
+    "date": "2024-12-03",
+    "open": 425.0,
+    "high": 428.0,
+    "low": 422.75,
+    "close": 423.25,
+    "volume": 4078.0
+  },
+  {
+    "trading_symbol": "ZC",
+    "date": "2024-12-02",
+    "open": 423.0,
+    "high": 425.5,
+    "low": 420.75,
+    "close": 424.5,
+    "volume": 3877.0
+  },
+  ...
+]
