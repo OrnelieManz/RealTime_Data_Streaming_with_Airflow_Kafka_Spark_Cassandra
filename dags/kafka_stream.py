@@ -47,17 +47,27 @@ def format_data(res, retrieval_type):
 #results = retrieve_data()
 #df = pd.DataFrame(format_data(results,'latest'), index=[0])
 #print(df.head())
-
+#print(json.dumps(res, indent=3))
 
 def stream_data():
     import json
     from kafka import KafkaProducer
     import time
-    res = retrieve_data()
-    res = format_data(res, retrieval_type='latest')
-    #print(json.dumps(res, indent=3))
-    producer = KafkaProducer(bootstrap_servers=['localhost:9092'], max_block_ms=5000)
-    producer.send('Daily_Zinc_data', json.dumps(res).encode('utf-8'))
+    import logging
+    
+    producer = KafkaProducer(bootstrap_servers=['broker:29092'], max_block_ms=5000)
+    current_time = time.time()
+
+    while True:
+        if time.time() > current_time + 60:
+            break
+        try:
+            res = retrieve_data()
+            res = format_data(res, retrieval_type='latest')
+            producer.send('Daily_Zinc_data', json.dumps(res).encode('utf-8'))
+        except Exception as e:
+            logging.error(f'An error occured: {e}')
+            continue
 
 
 
@@ -72,5 +82,5 @@ with DAG('commodities_daily_data_streaming',
     )
 
 
-#stream_data()
+stream_data()
     
